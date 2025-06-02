@@ -135,7 +135,8 @@ get_reference_rdocx <- memoise(get_docx_uncached)
 #' document. `list("Normal" = c("Author", "Date"))` will result in a document where
 #' all paragraphs styled with stylename "Date" and "Author" will be then styled with
 #' stylename "Normal".
-#' @param reference_num if `TRUE`, text for references to sections will be
+#' @param md2 if TRUE sets number_section to true
+#' #' @param reference_num if `TRUE`, text for references to sections will be
 #' the section number (e.g. '3.2'). If FALSE, text for references to sections
 #' will be the text (e.g. 'section title').
 #' @param page_size,page_margins default page and margins dimensions. If
@@ -176,7 +177,7 @@ get_reference_rdocx <- memoise(get_docx_uncached)
 rdocx_document <- function(base_format = "rmarkdown::word_document",
                            tables = list(), plots = list(), lists = list(),
                            mapstyles = list(), page_size = NULL, page_margins = NULL,
-                           reference_num = TRUE, ...) {
+                           md2 = FALSE, reference_num = TRUE, ...) {
 
   args <- list(...)
   if(is.null(args$reference_docx)){
@@ -186,7 +187,11 @@ rdocx_document <- function(base_format = "rmarkdown::word_document",
     )
   }
   if(!is.null(args$number_sections) && isTRUE(args$number_sections)){
-    args$number_sections <- FALSE
+    if (isTRUE(md2)) {
+      args$number_sections <- TRUE
+    } else {
+      args$number_sections <- FALSE
+    }
   }
 
   args$reference_docx <- absolute_path(args$reference_docx)

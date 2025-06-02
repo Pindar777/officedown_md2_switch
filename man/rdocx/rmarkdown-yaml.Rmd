@@ -45,6 +45,7 @@ output:
       ul.style: null
     mapstyles:
       Normal: ['First Paragraph', 'Author', 'Date']
+    md2: false
     page_size:
       width: 11906 / 1440
       height: 16838 / 1440
