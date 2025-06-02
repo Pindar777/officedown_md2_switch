@@ -13,6 +13,8 @@ status](https://github.com/davidgohel/officedown/workflows/R-CMD-check/badge.svg
 
 ## Overview
 
+THIS A FORK with a minor change to introduce a siwthc to the number_section feature.
+
 ### Word
 
 The package facilitates the formatting of Microsoft Word documents
@@ -95,7 +97,7 @@ Manuals are available at:
 You can install `{officedown}` from github with:
 
 ``` r
-remotes::install_github("davidgohel/officedown")
+remotes::install_github("Pindar777/officedown_md2_switch")
 ```
 
 Supported formats require some minimum
